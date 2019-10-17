@@ -1,0 +1,316 @@
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+#include <string.h>
+#include<windows.h>
+#include<stdlib.h>
+#define USERNAME    "shiva"
+#define PASSWORD    "ok@123"
+void Admin();
+void BillingAgent();
+void getPassword(char *pass);
+void getPassword(char *pass)
+{
+    int c=0;
+    char buff[30]={0},ch;
+    int len=0;
+    while((ch=getch())!='\n')
+    {
+        if(ch==0x7f)
+        {
+            if(len==0)  continue;
+            printf("\b \b"); len--; continue;
+        }
+        printf("%c",'*');
+        pass[len]=ch;
+        len++;
+    }
+    pass[len]='\0';
+
+}
+struct adminofstore
+{
+    char usrname[20];
+    float cost;
+
+
+
+
+}s;
+struct billingagt
+{
+int pid;
+int quantity;
+
+}b[30];
+
+int main()
+{
+    int choice;
+    int i;
+for(i=0;i<79;i++)
+printf("=");
+printf("\n\n\t\t\t\tWELCOME TO STORE\n\n");
+for(i=0;i<79;i++)
+printf("*");
+Sleep(2000);
+getch();
+system("cls");
+
+    while(1)
+    {
+
+        system("cls");
+        printf("1.Admin \n 2.Billing Agent\n");
+        choice=getche();
+        switch(choice)
+		{
+		    case 1:Admin();
+		    break;
+		    case 2:BillingAgent();
+		    break;
+		    default:
+				system("cls");
+				printf("Incorrect Input");
+				printf("\nAny key to continue");
+				getch();
+		}
+    }
+}
+void Agent()
+{
+    FILE *f;
+	char test;
+	f=fopen("c:/file.ojs","ab+");
+	if(f==0)
+	{   f=fopen("c:/file.ojs","wb+");
+		system("cls");
+		printf("please wait while we configure your computer");
+		printf("/npress any key to continue");
+		getch();
+	}
+	while(1)
+	{
+
+    printf("kindly enter the username");
+    scanf("%d",&s.usrname);
+    printf("kindly enter the password");
+    getPassword(pass);
+    if(strcmp(usrname,USERNAME )==0&&strcmp(pwd,PASSWORD)==0)
+        Adminpage();
+    else
+    printf("details are in correct");
+}
+}
+void Adminpage()
+{
+    int choice;
+
+
+    printf("WELCOME,%s",aname);
+    while(1)
+    {
+
+        system("cls");
+        printf("1.Update username/password\n 2.Update cost\n 3.Update stock 4. Update Discount Percentage 5. Display Product Information 6. Logout\n\n");
+        choice=getche();
+            case 1:updateusrpwd();
+
+                break;
+            case 2:updatecost();
+
+                break;
+            case 3:updatestock();
+                break;
+            case 4:updatedisper();
+                break;
+            case 5:displayproduct();
+                break;
+             case 6:logout();
+                break;
+
+
+}
+void updateusrpwd()
+{
+
+    printf("enter old username");
+    scanf("%d",&usrname);
+    fflush(stdin);
+    printf("enter new username");
+    strcpy(newusrname,usrname);
+    printf("enter old password");
+    getPassword(pass);
+    for(i=0;i<8;i++)
+  {
+   userpwd[i]=getch();
+   printf("*");
+  }
+  userpwd[i]='\0';
+    fflush(stdin);
+    printf("enter new password");
+    getPassword(pass1);
+    for(i=0;i<8;i++)
+  {
+   userpwd[i]=getch();
+   printf("*");
+  }
+  userpwd[i]='\0';
+    strcpy(pass1,pass);
+
+}
+void updatecost();
+{
+    printf("enter the product id")
+    scanf("%d",&pid);
+    gst=((price/100)*12);
+    cost=price+gst;
+    printf("\nprice  gst  cost\n");
+    printf("\n %d      %d     %d\n",price,gst,cost);
+
+
+
+
+
+
+}
+
+void updatestock();
+{
+
+
+}
+void updatedisper()
+{
+
+
+}
+void displayproduct()
+{
+    FILE *f;
+	int i;
+	if((f=fopen("c:/file.ojs","rb"))==NULL)
+		exit(0);
+	system("cls");
+	printf("produt id\t\tcostperunit\t\t\tStock\n");
+	for(i=0;i<79;i++)
+		printf("-");
+
+	while(fread(&s,sizeof(s),1,f)==1)
+	{
+		printf("\n%-10s\t\t%-20s\t\tRs. %.2f /-",pid,cpu,stock);
+	}
+	printf("\n");
+	for(i=0;i<79;i++)
+		printf("-");
+
+fclose(f);
+getch();
+}
+
+
+
+}
+void logout()
+{
+main();
+
+}
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+void BillingAgent();
+{
+  int count,i;
+float stotal;
+int discount;
+float total;
+float dis;
+char ch;
+ float priceperQty[10],price[10];
+
+
+
+
+
+
+//	Statements
+while(1)
+{
+
+
+
+	printf("\t\tWelcome !!\n");
+	//printf("\n Please Enter the following details. \n\n");
+	printf("enter the product count");
+	scanf("%d",&count);
+
+
+	printf("enter product Id followed by quantity purchased of  %d products" ,count);
+	for(i=0;i<count;i++)
+    {
+
+
+	scanf("%d %d",&b[i].pid,&b[i].quantity);
+    }
+    for(i=0;i<count;i++)
+    {
+	printf("enter the priceperqty");
+	scanf("%f",&priceperQty[i]);
+	price[i]=priceperQty[i]*b[i].quantity;
+	dis=((stotal*discount)/100);
+	total=stotal-dis;
+    }
+
+
+
+
+      printf("\n\n\t\t\t\t\tBill Generated. \n\n");
+
+      //system("PAUSE");
+      //system("CLS");
+
+//	Calculation Statements
+
+
+
+//	Printing Bills
+    printf("\n");
+    printf("\t\t\t====================================================\n");
+	printf("\t\t\t\t     Thank you for visiting[name of the store]!!\n");
+	printf("\t\t\t====================================================\n");
+	printf("\t\t\t product ID\t\t quantity \t\t price per Qty\t\t Price\n\n");
+	printf("\t\t\t------------------------------------------------------------------------------------\n\n");
+	for(i=0;i<count;i++)
+	 printf("\t\t\t%d\t\t\t     %d\t\t     %f\t\t%f\n",b[i].pid,b[i].quantity,priceperQty[i],price[i]);
+	 printf("\t\t\t                                           \n\n");
+    printf("\t\t\t\t\t\t\t\tt\t\t\t\t\tSub Total:\t\t\t%f\n",stotal);
+    printf("\t\t\t\t\t\t\t\tt\t\t\t\t\tDiscount:\t\t\t%f\n\n",discount);
+    printf("\t\t\t\t\t\t\t\tt\t\t\t\t\t Total:\t\t\t%f\n\n",total);
+    printf("\n\n**************************************************************************\n\n");
+    printf("Want to continue[y/n]?");
+        scanf("%d",&ch);
+    if(ch=='y'||ch=='Y')
+        continue;
+    else
+    {
+        printf("Exit from the application");
+        break;
+    }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
